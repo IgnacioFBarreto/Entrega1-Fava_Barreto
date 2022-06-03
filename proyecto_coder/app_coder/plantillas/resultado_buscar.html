@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+{% if carreras %}
+    <ul>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Comisión</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for carrera in carreras %}
+        <tr>
+          <th scope="row">{{n.id}}</th>
+          <td>{{carrera.nombre}}</td>
+          <td>{{carrera.comision}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>        
+    </table>
+    </ul>
+{% else %}
+    <p>No se encontraron carreras</p>
+{% endif %}
+
+{% endblock %}

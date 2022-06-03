@@ -1,0 +1,114 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <center>
+    <h1 class="mb-3">Carreras</h1>
+    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/a.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Lic. en Economía</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/b.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Contador Público</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/c.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Administración de Empresas</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/d.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Lic. en Sociología</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/h.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Profesorado de Historia</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/f.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Lic. en Ciencias Políticas</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/e.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Derecho</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/g.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Lic. en Comunicación Social</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%  static 'app_coder/assets/img/i.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Medicina</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br></br>
+    <center>
+    <h1 class="mb-3">Listado de Carreras</h1>
+    </center>
+    <table class="table table-striped">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button"><a href="{% url 'buscar_carrera' %}" style="color:white">Buscar Carrera</a></button>
+        </div>
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Comisión</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for n in datos %}
+        <tr>
+            <td>{{n.id}}</td>
+            <td>{{n.nombre}}</td>
+            <td>{{n.comision}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>        
+    </table>
+    <br></br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button"><a href="{% url 'carrera_formulario' %}" style="color:white">Agregar Carrera</a></button>
+    </div>
+{% endblock %}

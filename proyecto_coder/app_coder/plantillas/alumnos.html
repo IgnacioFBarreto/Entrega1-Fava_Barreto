@@ -1,0 +1,76 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <center>
+    <h1 class="mb-3">Egresados destacados</h1>
+    </center>
+        <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="{%  static 'app_coder/assets/img/testimonials-1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Rosa González</h5>
+                      <p class="card-text">Economista</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{%  static 'app_coder/assets/img/testimonials-2.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mariano Fernández</h5>
+                      <p class="card-text">Lic. en Administración de Empresas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{%  static 'app_coder/assets/img/testimonials-3.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mónica Rodriguez</h5>
+                      <p class="card-text">Lic. en Marketing Digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    <br></br>
+    <center>
+                <h1 class="mb-3">Lista de alumnos</h1>
+    </center>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Edad</th>
+          <th scope="col">DNI</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Comisión</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for n in datos %}
+        <tr>
+          <th scope="row">{{n.id}}</th>
+          <td>{{n.nombre}}</td>
+          <td>{{n.apellido}}</td>
+          <td>{{n.edad}}</td>
+          <td>{{n.dni}}</td>
+          <td>{{n.email}}</td>
+          <td>{{n.carrera}}</td>
+          <td>{{n.comision}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>        
+    </table>
+    <br></br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button"><a href="{% url 'alumno_formulario' %}" style="color:white">Agregar alumno</a></button>
+    </div>
+{% endblock %}

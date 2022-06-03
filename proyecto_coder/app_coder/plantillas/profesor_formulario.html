@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <main>
+        <form action="profesor_formulario" method="POST">
+            {% csrf_token %}
+            <p>Nombre:</p>
+            <input type="text" name="nombre" required>
+            <p>Apellido:</p>
+            <input type="text" name="apellido" required>
+            <p>Edad:</p>
+            <input type="number" name="edad" required>
+            <p>DNI:</p>
+            <input type="number" name="dni" required>
+            <p>Email:</p>
+            <input type="email" name="email" required>
+            <p>Carrera:</p>
+            <input type="text" name="carrera" required>
+           
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
+{% endblock %}

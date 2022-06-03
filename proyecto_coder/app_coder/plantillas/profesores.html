@@ -1,0 +1,74 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <center>
+        <h1 class="mb-3">Profesores destacados</h1>
+    </center>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <img src="{%  static 'app_coder/assets/img/depablo.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Juan Carlos de Pablo</h5>
+                          <p class="card-text">Juan Carlos de Pablo es un economista argentino. Estudió en la Universidad Católica Argentina entre 1960 y 1964 y luego continuó con su formación en Harvard. Es doctor honoris causa en la UCEMA.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="{%  static 'app_coder/assets/img/mingo.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Domigo Felipe Cavallo</h5>
+                          <p class="card-text">Domingo Felipe Cavallo es un economista y político argentino. Estudió en la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba. Se recibió con honores de contador público en 1967 y de economista en 1968, doctorándose en Economía en 1970. En 1977 logró un segundo doctorado, esta vez por la Universidad Harvard (Estados Unidos).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="{%  static 'app_coder/assets/img/diana.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Diana Mondino</h5>
+                          <p class="card-text">Diana Mondino es una economista argentina. Fue Directora de la región Latinoamérica para Standard & Poor’s, basada en Nueva York, con responsabilidad sobre las actividades regionales. En 1991 fundó Risk Analysis, una calificadora de riesgo local, luego adquirida por Standard & Poor’s.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br></br>
+    <center>
+                    <h1 class="mb-3">Lista de profesores</h1>
+    </center>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Edad</th>
+              <th scope="col">DNI</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Carrera</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for n in datos %}
+            <tr>
+              <th scope="row">{{n.id}}</th>
+              <td>{{n.nombre}}</td>
+              <td>{{n.apellido}}</td>
+              <td>{{n.edad}}</td>
+              <td>{{n.dni}}</td>
+              <td>{{n.email}}</td>
+              <td>{{n.carrera}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>        
+      </table>
+    <br></br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button"><a href="{% url 'profesor_formulario' %}" style="color:white">Agregar profesor</a></button>
+    </div>
+{% endblock %}
